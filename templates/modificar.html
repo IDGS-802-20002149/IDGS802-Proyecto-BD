@@ -1,0 +1,19 @@
+{%extends "layout.html"%}
+
+{%block content%}
+    <div class="col-xs-6">
+        <form action="/modificar" method="post" novalidate>
+            <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+            {% from "_macros.html" import render_field %}
+            {{render_field(form.id)}}
+            {{render_field(form.nombre)}}
+            {{render_field(form.apellidos)}}
+            {{render_field(form.email)}}
+            <input type="submit" class="btn btn-success" id="Modificar" value="Modificar" name="Modificar">
+            <a href="ABCompleto" class="btn btn-danger"><i class="icon-action-undo icon-white"></i>Cancelar</a>
+        </form>
+    </div>
+    <div class="col-xs-6">
+        <h3></h3>
+    </div>
+{%endblock%}
