@@ -1,0 +1,39 @@
+{%extends "layout.html"%}
+
+{%block content%}
+    <div class="container-fluid">
+        <div class="row my-3 text-white rounded-pill" style="background-color: rgba(0, 0, 0, 0.3);">
+            <div class="col-10 mt-4 mb-3 text-center">
+                <h3>Modificar Maestros</h3>
+            </div>
+            <div class="col-2 mt-4">
+                <a href="/ABCompletoTeachers" class="btn btn-danger rounded-pill"><i class="bi bi-arrow-left-circle"></i> Cancelar</a>
+            </div>
+        </div>
+
+        <div class="row my-3 text-white rounded px-4 pt-4 position-relative"></div>
+            <div class="col-4 p-3 mt-4 position-absolute top-50 start-50 translate-middle" style="background-color: rgba(0, 0, 0, 0.3);">
+                <form action="/modificarTeachers" class="form" method="post" novalidate>
+                    <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+                    {% from "_macros.html" import render_field %}
+                    
+                    <div class="form-control my-3">
+                        {{render_field(form.id)}}
+                    </div>
+                    <div class="form-control my-3">
+                        {{render_field(form.nombre)}}
+                    </div>
+                    <div class="form-control my-3">
+                        {{render_field(form.apellidos)}}
+                    </div>
+                    <div class="form-control my-3">
+                        {{render_field(form.email)}}
+                    </div>
+                    <center>
+                        <button type="submit" class="btn btn-success"><i class="bi bi-pencil-square"></i> Modificar</button>
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
+{%endblock%}

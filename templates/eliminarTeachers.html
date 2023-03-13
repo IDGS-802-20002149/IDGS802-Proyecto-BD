@@ -1,0 +1,31 @@
+{%extends "layout.html"%}
+
+{%block content%}
+    <div class="container-fluid">
+        <div class="row my-3 text-white rounded-pill" style="background-color: rgba(0, 0, 0, 0.3);">
+            <div class="col-10 mt-4 mb-3 text-center">
+                <h3>Seguro que deseas eliminar este usuario</h3>
+            </div>
+            <div class="col-2 mt-4">
+                <a href="/ABCompleto" class="btn btn-danger rounded-pill"><i class="bi bi-arrow-left-circle"></i> Cancelar</a>
+            </div>
+        </div>
+
+        <div class="row my-3 text-white rounded px-4 pt-4 position-relative"></div>
+            <div class="col-4 p-3 mt-4 position-absolute top-50 start-50 translate-middle" style="background-color: rgba(0, 0, 0, 0.3);">
+                <form action="/eliminarTeachers" class="form" method="post" novalidate>
+                    <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+                    {% from "_macros.html" import render_field %}
+                    <h3>{{form.id}}</h3>
+                    <h3>{{form.nombre}}</h3>
+                    <h3>{{form.apellidos}}</h3>
+                    <h3>{{form.email}}</h3>
+                    
+                    <center>
+                        <button class="btn btn-outline-danger" type="submit"><i class="bi bi-trash"></i> Eliminar</button>
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
+{%endblock%}
